@@ -15,13 +15,18 @@ ja:
     back: 戻る
     destroy: 削除
     new: 作成する
+  helpers:
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
   title:
-    books: 本一覧
-    create: 本の作成
-    update: 本の編集
-    destroy: 本の削除
+    list: "%{model}の一覧"
+    create: "%{model}の作成"
+    update: "%{model}の編集"
+    destroy: "%{model}の削除"
   notice:
-    create: 本を作成しました。
-    update: 本を編集しました。
-    destroy: 本を削除しました。
+    create: "%{model}を作成しました。"
+    update: "%{model}を編集しました。"
+    destroy: "%{model}を削除しました。"
   confirm: 本当によろしいですか？

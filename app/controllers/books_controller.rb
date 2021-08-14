@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: t('notice.create') }
+        format.html { redirect_to @book, notice: t('notice.create'), model: t('activerecord.model.book') }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }

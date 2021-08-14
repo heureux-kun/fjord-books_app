@@ -15,13 +15,18 @@ en:
     back: back
     destroy: destroy
     new: new
+  helpers:
+    submit:
+      create: create
+      submit: submit
+      update: update
   title:
-    books: books
-    create: create
-    update: update
-    destroy: destroy
+    list: "%{model} list"
+    create: "create %{model}"
+    update: "update %{model}"
+    destroy: "destroy %{model}"
   notice:
-    create: Book was successfully created.
-    update: Book was successfully updated.
-    destroy: Book was successfully destroye.
+    create: "%{model} was successfully created"
+    update: "%{model} was successfully updated"
+    destroy: "%{model} was successfully destroye"
   confirm: Are you Sure?
