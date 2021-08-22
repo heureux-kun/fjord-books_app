@@ -14,9 +14,10 @@
       <%= render '/devise/shared/flash' %>
       <ul>
         <% if user_signed_in? %>
-        <li><%= link_to 'ユーザー一覧', users_index_path %>
-        <li><%= link_to 'アカウント', users_show_path %>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <li><%= link_to 'ユーザー一覧', users_path %></li>
+        <% # MEMO: user_path(current_user)もしくはcurrent_userで自分のユーザーページになる %>
+        <li><%= link_to 'アカウント', user_path(current_user) %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li><%= link_to 'ログイン', user_session_path %></li>
         <li><%= link_to '新規登録', new_user_registration_path %></li>

@@ -4,16 +4,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    if @user == current_user
+      render 'edit'
+    else
+      redirect_to user_paths
+    end
   end
 
   def update
-    @user = current_user
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:zip, :address, :profile)
+    respond_to do |format|
+      if @user.update(user_rarams)
+        format.html{ redirect_to @user, notice: 'updated.' }
+        format.json{ render :show, status: :ok, location: @user }
+      else
+        format.html{ render :edit }
+        format.json{ render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end
