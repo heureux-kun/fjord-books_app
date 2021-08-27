@@ -17,9 +17,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    
     respond_to do |format|
       if @user.update(user_rarams)
-        format.html{ redirect_to @user, notice: 'updated.' }
+        format.html { redirect_to @book, notice: t('devise.registrations.updated')}
+        format.html{ redirect_to @user, notice: t('') }
         format.json{ render :show, status: :ok, location: @user }
       else
         format.html{ render :edit }
