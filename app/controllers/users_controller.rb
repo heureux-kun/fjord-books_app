@@ -10,12 +10,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update user_params
+    super
+    if account_update_params[:image].present?
+      resource.image.attach(account_update_params[:image])
+    end
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:image)
-  end
+    def user_params
+      params.require(:user).permit(:image)
+    end
 end
