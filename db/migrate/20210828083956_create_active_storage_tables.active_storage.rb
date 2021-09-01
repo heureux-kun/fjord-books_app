@@ -28,6 +28,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
     end
 
     create_table :active_storage_variant_records do |t|
+      t.timestamps
       t.belongs_to :blob, null: false, index: false
       t.string :variation_digest, null: false
 
