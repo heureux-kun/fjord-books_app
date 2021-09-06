@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   # reverse_of_relationshipsという名前でアソシエーション（relationshipsの逆方向。だけどrelationsipモデルの事）外部キーはfollow_id
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, througt: relationships, source: user
+  has_many :followers, through: relationships, source: user
 
   def follow(other_user)
     unless self == other_user
