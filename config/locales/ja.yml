@@ -21,7 +21,10 @@ ja:
         email: メールアドレス
         password: パスワード
         remember_me: 保存する
+        resistration: 登録
         login: ログイン
+        logout: ログアウト
+        account: アカウント
         signup: サインアップ
         password_confirmation: パスワード（確認用）
         current_password: 現在のパスワード
