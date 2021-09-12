@@ -10,6 +10,8 @@
   </head>
 
   <body>
+    <%= flash.now[:success] %>
+    <%= flash.now[:alert] %>
     <% if user_signed_in? %>
       <div class="menu-container">
         <div class="title"><%= t('.menu') %></div>
