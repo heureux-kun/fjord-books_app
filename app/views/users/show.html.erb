@@ -25,19 +25,19 @@
   <%= @user.self_introduction %>
 </p>
 
-<p>フォロー：<%= link_to @user.followings.count, '#' %></p>
-<p>フォロワー：<%= link_to @user.followers.count, '#' %></p>
+<p><%= Relationship.human_attribute_name(:following) %>：<%= link_to @user.followings.count, user_followings_path(@user) %></p>
+<p><%= Relationship.human_attribute_name(:follower) %>：<%= link_to @user.followers.count, user_followers_path(@user) %></p>
 
 <% unless current_user == @user %>
   <% if current_user.following?(@user) %>
-    <%= form_with model:current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete } do |f| %>
+    <%= form_with model: current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete } do |f| %>
       <%= hidden_field_tag :follow_id, @user.id %>
-      <%= f.submit 'Unfollow' %>
+      <%= f.submit Relationship.human_attribute_name(:unfollow) %>
     <% end %>
   <% else %>
-    <%= form_with model:current_user.relationships.build do |f| %>
+    <%= form_with model: current_user.relationships.build do |f| %>
       <%= hidden_field_tag :follow_id, @user.id %>
-      <%= f.submit 'Follow' %>
+      <%= f.submit Relationship.human_attribute_name(:follow) %>
     <% end %>
   <% end %>
 <% end %>
