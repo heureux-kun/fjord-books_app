@@ -27,24 +27,20 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human) }
-      else
-        format.html { render :new }
-      end
+    if @book.save
+      format.html { redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human) }
+    else
+      format.html { render :new }
     end
   end
 
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
-      else
-        format.html { render :edit }
-      end
+    if @book.update(book_params)
+      format.html { redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
+    else
+      format.html { render :edit }
     end
   end
 
@@ -52,9 +48,7 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human) }
-    end
+    format.html { redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human) }
   end
 
   private
