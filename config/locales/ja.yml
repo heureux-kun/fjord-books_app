@@ -18,6 +18,7 @@ ja:
         picture: 書籍カバー
         title: タイトル
       user:
+        id: ID
         email: メールアドレス
         password: パスワード
         remember_me: 保存する

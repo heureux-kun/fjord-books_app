@@ -1,9 +1,9 @@
 <h1><%= t'title.info', model: t('activerecord.models.user') %></h1>
-<p>ID：<%= @user.id %></p>
-<p>メールアドレス：<%= @user.email %></p>
-<p>郵便番号：<%= @user.zip %></p>
-<p>住所：<%= @user.address %></p>
-<p>プロフィール：<%= @user.profile %></p>
+<p><%= User.human_attribute_name(:id) %>：<%= @user.id %></p>
+<p><%= User.human_attribute_name(:email) %>：<%= @user.email %></p>
+<p><%= User.human_attribute_name(:zip) %>：<%= @user.zip %></p>
+<p><%= User.human_attribute_name(:address) %>：<%= @user.address %></p>
+<p><%= User.human_attribute_name(:profile) %>：<%= @user.profile %></p>
 
 <% if @user == current_user %>
 <p>
