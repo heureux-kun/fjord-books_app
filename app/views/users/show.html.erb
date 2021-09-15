@@ -22,7 +22,7 @@
 
 <p>
   <strong><%= User.human_attribute_name(:image) %>:</strong>
-  <%= image_tag @user_image.variant(resize: '50x50').processed if @user_image.attached? %>
+  <%= image_tag @user.image.variant(resize: '50x50').processed if @user.image.attached? %>
 </p>
 
 <p>
