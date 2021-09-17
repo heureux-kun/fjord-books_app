@@ -5,13 +5,11 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
 
   # GET /books
-  # GET /books.json
   def index
     @books = Book.order(:id).page(params[:page])
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show; end
 
   # GET /books/new
@@ -23,29 +21,26 @@ class BooksController < ApplicationController
   def edit; end
 
   # POST /books
-  # POST /books.json
   def create
     @book = Book.new(book_params)
 
     if @book.save
-      format.html { redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human) }
+      redirect_to @book, notice: t('controllers.common.notice_create', name: Book.model_name.human)
     else
-      format.html { render :new }
+      render :new
     end
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
-      format.html { redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human) }
+      redirect_to @book, notice: t('controllers.common.notice_update', name: Book.model_name.human)
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
     format.html { redirect_to books_url, notice: t('controllers.common.notice_destroy', name: Book.model_name.human) }

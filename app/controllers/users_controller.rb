@@ -19,9 +19,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_rarams)
-      format.html { redirect_to @book, notice: t('devise.registrations.updated') }
+      redirect_to @book, notice: t('devise.registrations.updated')
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 end
