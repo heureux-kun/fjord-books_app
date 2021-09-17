@@ -7,6 +7,32 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      book: 本
+      user: ユーザー
+
+    attributes:
+      book:
+        author: 著者
+        memo: メモ
+        picture: 書籍カバー
+        title: タイトル
+      user:
+        id: ID
+        email: メールアドレス
+        password: パスワード
+        remember_me: 保存する
+        resistration: 登録
+        login: ログイン
+        logout: ログアウト
+        account: アカウント
+        signup: サインアップ
+        password_confirmation: パスワード（確認用）
+        current_password: 現在のパスワード
+        zip: 郵便番号
+        address: 住所
+        profile: プロフィール
+        edit_cancel: ユーザー情報の変更をキャンセルする
   date:
     abbr_day_names:
     - 日
@@ -212,9 +238,12 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      info: 情報
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      characters_minimum: 文字以上
+      destroy_action: "%{name}の削除"
     pagination:
       first: '最初'
       last: '最後'
@@ -226,3 +255,17 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+    forget-your-password: パスワードを忘れた方はこちら
+  title:
+    list: "%{model}の一覧"
+    info: "%{model}の情報"
+    create: "%{model}の作成"
+    update: "%{model}の編集"
+    destroy: "%{model}の削除"
+  notice:
+    create: "%{model}を作成しました。"
+    update: "%{model}を編集しました。"
+    destroy: "%{model}を削除しました。"
+    confirm: 本当によろしいですか？
+  link:
+    forget-your-password: パスワードを忘れた方はこちら

@@ -1,0 +1,16 @@
+<h1><%= t'title.info', model: t('activerecord.models.user') %></h1>
+<p><%= User.human_attribute_name(:id) %>：<%= @user.id %></p>
+<p><%= User.human_attribute_name(:email) %>：<%= @user.email %></p>
+<p><%= User.human_attribute_name(:zip) %>：<%= @user.zip %></p>
+<p><%= User.human_attribute_name(:address) %>：<%= @user.address %></p>
+<p><%= User.human_attribute_name(:profile) %>：<%= @user.profile %></p>
+
+<% if @user == current_user %>
+<p>
+  <%= link_to 'プロフィールの変更', edit_user_registration_path %>
+</p>
+<% end; %>
+
+<p>
+  <%= link_to '一覧に戻る', users_path %>
+</p>

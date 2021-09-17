@@ -1,0 +1,39 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ja:
+  devise:
+    failure:
+      unauthenticated: 続けるにはサインインもしくはログインしてください。
+      forgot-your-password: パスワードをお忘れですか？
+    sessions:
+      signed_in: ログインしました。
+    registrations:
+      signed_up: サインアップしました。
+      updated: ユーザー情報を更新しました。
+      unhappy: 気に入りません
+    passwords:
+      send_instructions: アカウントの有効化について数分以内にメールでご連絡します。
+      change_your_password: パスワードの変更
+      new_password: 新しいパスワード
+      confirm_new_password: 新しいパスワードの確認
+      updated: パスワードを変更しました。
+    mailer:
+      hello: こんにちは
+      password_change_request: あなたのパスワードを変更するためのリンクをリクエストされました。以下のリンクから変更できます。
+      change_my_password: パスワードの変更
+      ignore_mail: リクエストした覚えがない場合は、このメールを無視してください。
+      password_not_changed_until_link_access: 上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。
+      reset_password_instructions:
+        subject: パスワードのリセット手順
+  errors:
+    messages:
+      not_saved:
+        one: "1つのエラーにより、 %{resource} の保存ができませんでした:"
+        other: "%{count} つのエラーにより、 %{resource} の保存ができませんでした:"
+  form:
+    notice:
+      password_leave_blank: 変更しない場合は空欄のままにしてください
+      need_current_password: 変更するには現在のパスワードを入力してください
+    button:
+      reset_password: パスワード再発行
+      change_new_password: パスワードを変更する

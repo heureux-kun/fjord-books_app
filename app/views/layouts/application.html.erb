@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <header>
+      <%= render '/devise/shared/flash' %>
+      <ul>
+        <% if user_signed_in? %>
+        <li><%= link_to t('title.list', model: t('activerecord.models.user')), users_path %></li>
+        <% # MEMO: user_path(current_user)もしくはcurrent_userで自分のユーザーページになる %>
+        <li><%= link_to User.human_attribute_name(:account), user_path(current_user) %></li>
+        <li><%= link_to User.human_attribute_name(:logout), destroy_user_session_path, method: :delete %></li>
+        <% else %>
+        <li><%= link_to User.human_attribute_name(:login), user_session_path %></li>
+        <li><%= link_to User.human_attribute_name(:resistration), new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </header>
     <%= yield %>
   </body>
 </html>
