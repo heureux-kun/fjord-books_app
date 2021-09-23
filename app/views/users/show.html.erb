@@ -35,6 +35,7 @@
       <%= f.submit Relationship.human_attribute_name(:unfollow) %>
     <% end %>
   <% else %>
+    <%= # form_with url: relationships_path do ~ でもいける %>
     <%= form_with model: current_user.relationships.build do |f| %>
       <%= hidden_field_tag :follow_id, @user.id %>
       <%= f.submit Relationship.human_attribute_name(:follow) %>

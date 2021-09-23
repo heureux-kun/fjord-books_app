@@ -28,11 +28,12 @@ class User < ApplicationRecord
   def unfollow(other_user)
     # relationships.find_by〜の前のselfを略している
     relationship = relationships.find_by(follow_id: other_user.id)
+    # relationship.destroy if relationship をぼっち演算子を使った書き方
     relationship&.destroy
   end
 
   def following?(other_user)
     # relationshipの前のselfを略している
-    followings.include?(other_user)
+    followings.exists?(other_user.id)
   end
 end
