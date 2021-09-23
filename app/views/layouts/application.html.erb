@@ -10,8 +10,6 @@
   </head>
 
   <body>
-    <%= flash.now[:success] %>
-    <%= flash.now[:alert] %>
     <% if user_signed_in? %>
       <div class="menu-container">
         <div class="title"><%= t('.menu') %></div>
@@ -34,11 +32,8 @@
         </ul>
       </div>
     <% end %>
-    <% if notice.present? %>
-      <p id="notice"><%= notice %></p>
-    <% end %>
-    <% if alert.present? %>
-      <p id="alert"><%= alert %></p>
+    <% flash.each do |key,value| %>
+      <p id="<%= key %>"><%= value %></p>
     <% end %>
     <%= yield %>
   </body>

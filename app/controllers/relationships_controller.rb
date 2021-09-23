@@ -6,19 +6,23 @@ class RelationshipsController < ApplicationController
   def create
     # @userだけで@user.idが入る
     if current_user.follow(@user)
-      flash[:success] = 'ユーザーをフォローしました'
+      # ユーザーをフォローした時のメッセージ
+      flash[:notice] = t('controllers.common.notice_create', name: Relationship.human_attribute_name(:following))
     else
-      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
+      # ユーザーのフォローに失敗した時のメッセージ
+      flash[:alert] = t('controllers.common.notice_failed_to_create', name: Relationship.human_attribute_name(:following))
     end
     redirect_to user_path(@user)
+    # redirect_to user_path(@user), succness: 'ユーザーをフォローしました' という書き方もある
   end
 
   def destroy
-    following = current_user.unfollow(@user)
-    if following.destroy
-      flash[:success] = 'ユーザーのフォローを解除しました'
+    if current_user.unfollow(@user)
+      # ユーザーのフォローを解除した時のメッセージ
+      flash[:notice] = t('controllers.common.notice_destroy', name: Relationship.human_attribute_name(:following))
     else
-      flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
+      # ユーザーのフォロー解除に失敗した時のメッセージ
+      flash[:alert] = t('controllers.common.notice_railed_to_destroy', name: Relationship.human_attribute_name(:following))
     end
 
     redirect_to user_path(@user)
