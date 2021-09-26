@@ -9,6 +9,6 @@ class Relationship < ApplicationRecord
   belongs_to :follow, class_name: 'User'
 
   # MEMO：uniquenessはどちらにも書かなくてもOK？
-  validates :user_id, presence: true, uniqueness: { scope: :follow_id }
-  validates :follow_id, presence: true, uniqueness: { scope: :user_id }
+  validates :user_id, presence: true
+  validates :follow_id, presence: true, uniqueness: { scope: :user }
 end
