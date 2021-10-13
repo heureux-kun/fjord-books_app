@@ -50,6 +50,6 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit %i(:user_id, :title, :content, comments_attributes:[:body, :id, :user_id, :commentable_type, :commentable_id]) # rubocop:disable all
+    params.require(:report).permit(:user_id, :title, :content, comments_attributes:[:body, :id, :user_id, :commentable_type, :commentable_id]) # rubocop:disable all
   end
 end
