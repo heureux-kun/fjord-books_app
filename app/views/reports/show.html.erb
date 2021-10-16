@@ -28,9 +28,9 @@
     </tbody>
   </table>
   
-  <%= render 'comments/shared/comment', comments: @comments %>
+  <%= render 'comments/shared/comment', comments: @report.comments %>
 
-  <%= render 'comments/shared/form', comment: @comment, parent_capital: Report, parent: @report %>
+  <%= render 'comments/shared/form', comment: @report.comment, parent_capital: Report, parent: @report %>
 
 <% else %>
   <p><%= t('views.common.there_is_no_data') %></p>
